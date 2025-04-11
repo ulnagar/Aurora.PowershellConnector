@@ -29,9 +29,9 @@ internal sealed class TeamsPowershellConnector : ITeamsPowershellConnector
                 List<string> locations = paths.Split(';').ToList();
                 foreach (string location in locations)
                 {
-                    if (File.Exists($@"{location}\MicrosoftTeams\4.9.0\MicrosoftTeams.psm1"))
+                    if (File.Exists($@"{location}\MicrosoftTeams\6.9.0\MicrosoftTeams.psm1"))
                     {
-                        initial.ImportPSModule($@"{location}\MicrosoftTeams\4.9.0\MicrosoftTeams.psm1");
+                        initial.ImportPSModule($@"{location}\MicrosoftTeams\6.9.0\MicrosoftTeams.psm1");
                         imported = true;
                     }
                 }
@@ -52,9 +52,9 @@ internal sealed class TeamsPowershellConnector : ITeamsPowershellConnector
                 List<string> locations = paths.Split(':').ToList();
                 foreach (string location in locations)
                 {
-                    if (File.Exists($@"{location}/MicrosoftTeams/4.9.0/MicrosoftTeams.psm1"))
+                    if (File.Exists($@"{location}/MicrosoftTeams/6.9.0/MicrosoftTeams.psm1"))
                     {
-                        initial.ImportPSModule($@"{location}/MicrosoftTeams/4.9.0/MicrosoftTeams.psm1");
+                        initial.ImportPSModule($@"{location}/MicrosoftTeams/6.9.0/MicrosoftTeams.psm1");
                         imported = true;
                     }
                 }
@@ -329,7 +329,7 @@ internal sealed class TeamsPowershellConnector : ITeamsPowershellConnector
 
     private List<T> ConvertObjects<T>(ICollection<PSObject> results)
     {
-        List<T> returnData = new();
+        List<T> returnData = [];
 
         foreach (PSObject obj in results)
         {
