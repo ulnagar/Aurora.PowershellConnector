@@ -27,11 +27,11 @@ public sealed class TeamMember : IEquatable<TeamMember>
 
     public override int GetHashCode()
     {
-        return string.Format("{0}.{1}.{2}", GroupId, UserId, Role).GetHashCode();
+        return $"{GroupId}.{UserId}.{Role}".GetHashCode();
     }
 
     public override string ToString()
     {
-        return string.Format("User {0} is {1} of Team {2}", Name, Role, GroupId);
+        return $"User {Name} is {Role} of Team {GroupId}";
     }
 }

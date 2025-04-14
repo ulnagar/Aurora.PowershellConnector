@@ -1,7 +1,4 @@
 ﻿namespace Aurora.PowershellConnector.Exceptions;
 
-public sealed class ModuleNotFoundException : Exception
-{
-    public ModuleNotFoundException(string message)
-        : base(message) { }
-}
+public sealed class ModuleNotFoundException(string message) 
+    : Exception(message);

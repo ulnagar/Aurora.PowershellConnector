@@ -1,9 +1,9 @@
 ﻿namespace Aurora.PowershellConnector.Services;
 
-using Aurora.PowershellConnector.Exceptions;
-using Aurora.PowershellConnector.Interfaces;
-using Aurora.PowershellConnector.Models;
+using Exceptions;
+using Interfaces;
 using Microsoft.PowerShell;
+using Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
@@ -52,9 +52,9 @@ internal sealed class TeamsPowershellConnector : ITeamsPowershellConnector
                 List<string> locations = paths.Split(':').ToList();
                 foreach (string location in locations)
                 {
-                    if (File.Exists($@"{location}/MicrosoftTeams/6.9.0/MicrosoftTeams.psm1"))
+                    if (File.Exists($"{location}/MicrosoftTeams/6.9.0/MicrosoftTeams.psm1"))
                     {
-                        initial.ImportPSModule($@"{location}/MicrosoftTeams/6.9.0/MicrosoftTeams.psm1");
+                        initial.ImportPSModule($"{location}/MicrosoftTeams/6.9.0/MicrosoftTeams.psm1");
                         imported = true;
                     }
                 }
@@ -335,7 +335,7 @@ internal sealed class TeamsPowershellConnector : ITeamsPowershellConnector
         {
             string objectString = JsonConvert.SerializeObject(obj.Properties.ToDictionary(k => k.Name, k => k.Value));
 
-            if (objectString is not null)
+            if (!string.IsNullOrWhiteSpace(objectString))
             {
                 T convertedObject = JsonConvert.DeserializeObject<T>(objectString);
                 returnData.Add(convertedObject);
@@ -345,7 +345,7 @@ internal sealed class TeamsPowershellConnector : ITeamsPowershellConnector
         return returnData;
     }
 
-    private static void ErrorEventHandler(object? sender, DataAddedEventArgs e)
+    private static void ErrorEventHandler(object? sender, DataAddedEventArgs? e)
     {
         if (sender is not null && e is not null)
             Console.WriteLine(((PSDataCollection<ErrorRecord>)sender)[e.Index].ToString());

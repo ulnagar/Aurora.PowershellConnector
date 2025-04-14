@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B00D47CC-E12B-416A-9C1A-6E09D3EE0BC2}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.PowershellConnector", "src\Aurora.PowershellConnector\Aurora.PowershellConnector.csproj", "{892A5C0F-EAA2-4CBE-993D-884D1F911332}"
 EndProject
@@ -16,9 +19,6 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{892A5C0F-EAA2-4CBE-993D-884D1F911332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{892A5C0F-EAA2-4CBE-993D-884D1F911332}.Debug|Any CPU.Build.0 = Debug|Any CPU
@@ -29,8 +29,14 @@ Global
 		{B83D76A8-F09A-4EE8-AEFC-EE9C10355A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B83D76A8-F09A-4EE8-AEFC-EE9C10355A41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{892A5C0F-EAA2-4CBE-993D-884D1F911332} = {B00D47CC-E12B-416A-9C1A-6E09D3EE0BC2}
 		{B83D76A8-F09A-4EE8-AEFC-EE9C10355A41} = {AE07BC6C-0F16-4873-93D0-B414DE1D574C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {882F5748-8879-4B82-857E-A8F4A040F10F}
 	EndGlobalSection
 EndGlobal
